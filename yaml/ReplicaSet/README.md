@@ -1,7 +1,7 @@
 # ReplicaSet
 ********************************
 
-## 레플리케이션컨트롤러
+## 1. 레플리케이션컨트롤러
 1. 레이블 셀렉터
 2. 복제본 수
 3. 포드 템플릿
@@ -36,4 +36,19 @@ kubectl delete rc rc-http-go -> pod 전체 삭제
 kubectl apply -f http-go-rc-v2.yaml  
 kubectl edit rc http-go  -> editor  
 kubectl scale rc http-go --replicas=5   -> cli
+
+
+
+## 2. 레플리카셋
+### 레플리케이션컨트롤러 vs 레플리카셋
+1. 기능은 거의 동일하게 동작
+2. 레플리카셋이 더 풍부한 표현식 포드 셀렉터 사용 가능  
+- 레플리케이션컨트롤러: 특정 레이블을 포함하는 포드가 일치하는지 확인  
+- 레플리카셋: 특정 레이블이 없거나 해당 값과 관계없이 특정 레이블 키를 포함하는 포드를 매치하는지 확인  
+
+##### <span style="color:yellow">조회</span>
+kubectl get rs
+kubectl describe rs http-go-rs
+kubectl delete rs http-go-rs
+
 ********************************
